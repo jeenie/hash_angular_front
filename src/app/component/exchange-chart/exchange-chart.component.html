@@ -1,0 +1,170 @@
+<div class="container-fluid">
+    <!--   TITLE     -->
+    <ol class="breadcrumb bg-white text-dark mb-0 pl-0">
+        <li class="breadcrumb-item active" aria-current="page">거래소</li>
+      </ol>
+      <h3>거래</h3>
+      
+    
+        <div class="row"> 
+            <div class="col-8">
+                <div class="chartjs-container container">
+                    <canvas baseChart 
+                        [datasets]="lineChartData" 
+                        [labels]="lineChartLabels" 
+                        [options]="lineChartOptions"
+                        [colors]="lineChartColors" 
+                        [legend]="lineChartLegend" 
+                        [chartType]="lineChartType" 
+                        [plugins]="lineChartPlugins">
+                        <!-- (chartHover)="chartHovered($event)" 
+                        (chartClick)="chartClicked($event)"> -->
+                    </canvas>
+                </div>
+            </div>
+            <!--   datePicker   -->
+            <div class="col">
+                <mat-form-field appearance="fill">
+                    <mat-label>Enter a date range</mat-label>
+                    <mat-date-range-input [rangePicker]="picker">
+                    <input matStartDate placeholder="Start date" [(ngModel)]="date.start_date">
+                    <input matEndDate placeholder="End date" [(ngModel)]="date.end_date"  (dateChange)="dateSelector()" >
+                    </mat-date-range-input>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-date-range-picker #picker></mat-date-range-picker>
+                </mat-form-field>
+
+            </div>
+        </div>
+        <hr>
+        <hr>
+        <div class="row " >
+  
+            <div class="col">
+                <div class="chartjs-container container pt-5 piechart" >
+                    <canvas 
+                        baseChart 
+                        [data]="pieChartData" 
+                        [labels]="pieChartLabels" 
+                        [chartType]="pieChartType"
+                        [options]="pieChartOptions" 
+                        [plugins]="pieChartPlugins" 
+                        [colors]="pieChartColors" 
+                        [legend]="pieChartLegend">
+                    </canvas>
+                </div>
+            </div>
+
+            <div class="col pt-5">
+                <div class="card w-100 ">
+                    <div class="card-header">
+                         <div class="row">
+                             <!-- fontawesome : https://medium.com/better-programming/angular-font-awesome-in-5-easy-steps-with-angular-fontawesome-2b80129bcd7-->
+                             <!-- fontawesome : coins -->
+                             <div class="col-8">
+                                <span id="mybtc" ><fa-icon [icon]="faCoins"></fa-icon>MY HSS 잔고</span>
+                            </div>
+                            <div class="col-4">
+                                <span style="float:right">
+                                    <span id="mybtc_num">{{balance}}</span>
+                                    <span id="mybtc_type">HSS</span>
+                                 </span>
+                             </div>
+                            </div>
+                          
+                    </div>
+                    <!-- bootstrap tab  -->
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#deposit">입금 </a>
+                        </li>
+                        <li class="nav-item">
+                              <a class="nav-link" data-toggle="tab" href="#withdrawal">출금</a>
+                        </li>
+                    </ul>
+            
+                    <!-- bootstrap card - b  -->
+                    <div class="card-body" >
+                        <blockquote class="blockquote mb-0">
+        
+                            <!--  DEPOSIT  -->
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="deposit">
+                                    <div>
+                                        <div class="for_margin"> 입금 주소</div>
+                                         <!-- bootstrap :input-group-->
+                                        <div class="input-group">
+                                            <input [(ngModel)]="wallet_id" type="text" class="form-control" placeholder={{wallet_id}} aria-label="Username" aria-describedby="basic-addon1">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="for_margin">입급하실 금액</div>
+                                        <div class="input-group mb-3">
+                                            <input [(ngModel)]="amount" type="text" class="form-control" placeholder="" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                            <div class="input-group-append">
+                                             <button class="btn btn-outline-secondary" type="button">최대</button>
+                                            </div>
+                                         </div>
+                                    </div>
+                                    <div class="for_margin">
+                                        <div>입금 후 잔액:<span>000</span>  </div>
+                                        
+                                    </div>
+                                    <div class="for_margin"  >
+                                        <button style="width:200px"type="button" class="btn btn-outline-primary" (click)='deposit_alert()'>입금하기 </button>
+                                    </div>
+                                </div>
+        
+        
+                                <!--  WITHDRAWAL  -->
+                                <div class="tab-pane fade" id="withdrawal">
+                                    <div class="row mb-4 border-bottom border-top mx-1 py-4 px-1">
+                                        <div class="col-md-4 col-sm-12" id="info_line1">
+                                            <label class="form-label">1회 최소 출금 가능액</label>
+                                            <h5 class="text-right" id="w_min">0.003<span class="ml-1" id="my_coin_id">BTC</span></h5>
+                                        </div>
+                                        <div class="col-md-4 col-sm-12 border-x">
+                                            <label class="form-label">1회 최대 출금 가능액</label>
+                                            <h5 class="text-right" id="once_coin">1<span class="ml-1" id="my_coin_id">BTC</span></h5>
+                                        </div>
+                                        <div class="col-md-4 col-sm-12"  id="info_line2">
+                                            <label class="form-label">1일 출금 한도</label>
+                                            <h5 class="text-right" id="withdrawed_coin">0<span>/</span> <span id="daily_coin">5</span> <span class="ml-1" id="my_coin_id">BTC</span></h5>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="for_margin"> 출금 주소</div>
+                                         <!-- bootstrap :input-group-->
+                                        <div class="input-group">
+                                            <input [(ngModel)]="wallet_id" type="text" class="form-control" placeholder={{wallet_id}} aria-label="Username" aria-describedby="basic-addon1">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="for_margin">출금하실 금액</div>
+                                        <div class="input-group mb-3">
+                                            <input [(ngModel)]="amount" type="text" class="form-control" placeholder="" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                            <div class="input-group-append">
+                                             <button class="btn btn-outline-secondary" type="button">최대</button>
+                                            </div>
+                                         </div>
+                                    </div>
+                                    <div class="for_margin">
+                                        <div>출금 후 잔액</div>
+                                    </div>
+                                    <div class="for_margin"  >
+                                        <button style="width:200px"type="button" class="btn btn-outline-primary" (click)='withdrawal_alert()'>출금하기 </button>
+                                    </div>
+        
+        
+                                </div>
+                              </div>
+                            
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>        
+</div>
+
+
+

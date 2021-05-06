@@ -1,0 +1,129 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">마케팅 관리</a></li>
+      <li class="breadcrumb-item active" aria-current="page">전체 사용자 보상 조회</li>
+    </ol>
+</nav>
+
+
+  
+
+<h1>전체 사용자 보상 조회 (관리자 모드)</h1>
+
+<div class="sales-detail">
+  <div class="total-sales-rewards"><h3>총 매출 보상액</h3></div>
+  <div class="total-sales-rewards">
+      <h3>
+          {{this.allTotalCoin.toFixed(8)}} BTC
+      </h3>
+  </div>
+  <div class="total-sales-rewards">
+      <h3>
+          <span style="color: red">{{this.allTotalUsd.toFixed(2)}} USD</span>
+      </h3>
+  </div>
+
+</div>
+
+<div style="display: flex;"> 
+  <div class="col-lg-6"><p>사용자 아이디 조회</p>
+      <form class="example-form" (ngSubmit)="Submit()">
+          <mat-form-field class="example-full-width">
+            <input type="text"
+                   placeholder="사용자 아이디"
+                   aria-label="Number"
+                   matInput
+                   [formControl]="myControl"
+                   [matAutocomplete]="auto">
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                {{option}}
+              </mat-option>
+            </mat-autocomplete>
+            
+          </mat-form-field>
+          <mat-card-actions>
+              <button mat-raised-button type="submit" color="primary">검색</button>
+       </mat-card-actions>
+        </form>
+  
+  </div>
+  
+
+</div>
+
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows class="mat-elevation-z8">
+  
+     
+     <!-- WalletId Column -->
+    <ng-container matColumnDef="userId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>사용자 아이디 </th>
+        <td mat-cell *matCellDef="let element"> {{element.userId}}</td>
+    </ng-container>
+
+    <!-- WalletId Column -->
+    <ng-container matColumnDef="totalCoin">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> BTC </th>
+    <td mat-cell *matCellDef="let element"> {{element.totalCoin.toFixed(8)}}</td>
+    </ng-container>
+
+    <!-- Gubun Column -->
+    <ng-container matColumnDef="totalUsd">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> USD </th>
+    <td mat-cell *matCellDef="let element"> {{element.totalUsd.toFixed(2)}} </td>
+    </ng-container>
+
+    
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter </td>
+      </tr>
+      
+    </table>
+    <mat-paginator #TableOnePaginator="matPaginator" [pageSizeOptions]="[20, 30, 40]" showFirstLastButtons></mat-paginator>
+  </div>
+
+  <h1>사용자 총 매출 보상액 상위 10명 조회</h1>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource2"  multiTemplateDataRows class="mat-elevation-z8">
+  
+     
+     <!-- WalletId Column -->
+    <ng-container matColumnDef="userId">
+        <th mat-header-cell *matHeaderCellDef> 사용자 아이디 </th>
+        <td mat-cell *matCellDef="let element"> {{element.userId}}</td>
+    </ng-container>
+
+    <!-- WalletId Column -->
+    <ng-container matColumnDef="totalCoin">
+    <th mat-header-cell *matHeaderCellDef> BTC </th>
+    <td mat-cell *matCellDef="let element"> {{element.totalCoin.toFixed(8)}} BTC </td>
+    </ng-container>
+
+    <!-- Gubun Column -->
+    <ng-container matColumnDef="totalUsd">
+    <th mat-header-cell *matHeaderCellDef> USD </th>
+    <td mat-cell *matCellDef="let element"> {{element.totalUsd.toFixed(2)}} USD</td>
+    </ng-container>
+
+    
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter </td>
+      </tr>
+      
+    </table>
+    
+  </div>
+      
+
+  

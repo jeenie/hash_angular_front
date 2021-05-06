@@ -1,0 +1,73 @@
+<div class="container-fluid">
+
+    <!-- title --> 
+    <ol class="breadcrumb bg-white text-dark mb-0 pl-0">
+      <li class="breadcrumb-item active" aria-current="page">HSS&nbsp;  ><span class="title_f">&nbsp; 입 / 출금내역</span></li>
+    </ol>
+    <h3>입 / 출금 내역</h3>
+    <div class="row mb-5 mt-4">
+
+    <!-- bootstrap card -->
+    <div class="card w-100">
+        <div class="card-header">
+             <div class="row">
+                 <!-- fontawesome : https://medium.com/better-programming/angular-font-awesome-in-5-easy-steps-with-angular-fontawesome-2b80129bcd7-->
+                 <!-- fontawesome : coins -->
+                 <div class="col-8">
+                    <span id="mybtc">입 / 출금 내역 </span>
+                 </div>
+            </div>
+        </div>    
+        <div class="card-body" >
+            <blockquote class="blockquote mb-0">
+                <form>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="inputEmail4">지갑 주소 </label>
+                        <input type="email" class="form-control" id="inputEmail4" placeholder="{{depositInfo.WALLET_ID}}" [(ngModel)]="edit_form.wallet_id" name="wallet_id">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputPassword4">입 / 출금(I/O)</label>
+                        <input type="password" class="form-control" id="inputPassword4" placeholder="{{depositInfo.GUBUN}}" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputAddress">코인 종류</label>
+                      <input type="text" class="form-control" id="inputAddress" placeholder="{{depositInfo.COIN_ID}}" readonly>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputAddress2">입 / 출금 금액</label>
+                      <input type="text" class="form-control" id="inputAddress2" placeholder="{{depositInfo.AMOUNT}}" [(ngModel)]="edit_form.amount" name="amount">
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-2">
+                        <label for="inputCity">REASON</label>
+                        <input type="text" class="form-control" id="inputCity"  placeholder="{{depositInfo.REASON}}" readonly>
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label for="inputState">REASON DETAIL</label>
+                        <input type="text" class="form-control" id="inputCity" placeholder="{{depositInfo.REASON_DETAIL}}" readonly>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputZip">등록 날짜 </label>
+                        <input type="text" class="form-control" id="inputZip" placeholder="{{depositInfo.REG_DATE}}" [(ngModel)]="edit_form.reg_date" name="reg_date" readonly>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputZip">보유 금액 </label>
+                        <input type="text" class="form-control" id="inputZip" placeholder="{{depositInfo.BALANCE}}" readonly>
+                      </div>
+                    </div>
+                    <div>
+                        <button type="button"  class="btn btn-primary" onclick="location.href='com/exchange-chart'">확인</button>
+                        <button  type="button" (click)="editHistory()" class="btn btn-primary" >수정</button> 
+                        <button  type="button" (click)="undoHistory()" onclick="location.href='com/exchange-chart'"class="btn btn-primary" >취소</button> 
+                    </div>
+                  </form>
+                
+            </blockquote>
+        </div>
+    </div>
+
+
+
+</div>  

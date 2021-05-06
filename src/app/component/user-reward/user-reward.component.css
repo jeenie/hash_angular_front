@@ -1,0 +1,270 @@
+a {
+    color: #8094ae;
+    text-decoration: none;
+    padding: 0px 10px;
+    margin: 0px;
+}
+
+nav a {
+    background-color: #ffffff; 
+}
+
+.breadcrumb {
+    background-color: #ffffff;
+}
+
+.breadcrumb-item {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.breadcrumb-item active {
+    color: #b7c2d0;
+}
+
+.breadcrumb-item +
+.breadcrumb-item::before {
+    content: ">"
+}
+
+.container {
+    margin-left: 1%;
+}
+
+.example-full-width-pinned-row {
+    background-color: #2aabd2;
+    border: 2px solid darkblue;
+    /* we want the border to be kept within the row height */
+    box-sizing: border-box;
+    /* get the row to fill the available height */
+    height: 100%;
+    /* grid sets white-space to one line, need to reset for wrapping the text */
+    white-space: normal;
+  }
+  
+  .example-full-width-row {
+    background-color: #bbffbb;
+    border: 2px solid #22ff22;
+    /* we want the border to be kept within the row height */
+    box-sizing: border-box;
+    /* get the row to fill the available height */
+    height: 100%;
+    /* grid sets white-space to one line, need to reset for wrapping the text */
+    white-space: normal;
+  }
+  
+  /* to help highlight the example, shade blue to top and bottom pinned */
+  .ag-floating-top .ag-row {
+    background-color: lightblue !important;
+  }
+  
+  .ag-floating-bottom .ag-row {
+    background-color: lightblue !important;
+  }
+
+  
+  .mat-form-field {
+    font-size: 14px;
+    margin-right: 5%;
+  }
+  
+  td, th {
+    width: 3%;
+  }
+
+  th.mat-sort-header-sorted {
+    color: black;
+  }
+
+  .date-block {
+    display: flex;
+}
+
+.mat-column-position {
+  max-width: 100px;
+}
+
+.mat-column-name {
+  max-width: 100px;
+}
+
+.mat-elevation-z8 {
+  box-shadow: none;
+}
+
+.btcAndHss {
+  margin-top: 5%;
+  display: flex;
+}
+
+.btc {
+  flex: 1;
+  margin-right: 5%;
+}
+.hss {
+  flex: 1;
+}
+
+tr.example-detail-row {
+  height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: whitesmoke;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+  background: #efefef;
+}
+
+.example-element-row td {
+  border-bottom-width: 0;
+}
+
+.example-element-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.example-element-diagram {
+  min-width: 80px;
+  border: 2px solid black;
+  padding: 8px;
+  font-weight: lighter;
+  margin: 8px 0;
+  height: 104px;
+}
+
+.example-element-symbol {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: normal;
+}
+
+.example-element-description {
+  padding: 16px;
+}
+
+.example-element-description-attribution {
+  opacity: 0.5;
+}
+
+@media (min-width: 992px) {
+  .col-lg-6 {
+    flex: 0 0 70%;
+    max-width: 50%;
+}
+
+}
+
+.sales-detail {
+  display: flex;
+  margin-left: 2%;
+}
+
+.total-sales-rewards {
+  margin-right: 27%;
+}
+
+.total-sales {
+  margin-right: 28%;
+}
+
+.total-sales-coin {
+  margin-right: 26%;
+}
+
+.total-sales-title {
+  margin-left: 1%;
+}
+
+.example-action-buttons {
+  padding-bottom: 20px;
+}
+
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.example-headers-align .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.mat-accordion .mat-header-row {
+  padding-left: 1.5rem;
+  padding-right: 2rem;
+  border-bottom: none;
+}
+
+.mat-expansion-panel-header.mat-row {
+  border-bottom: none;
+}
+
+.mat-table {
+  display: block;
+}
+
+.mat-header-row {
+  min-height: 56px;
+}
+
+.mat-row {
+  min-height: 48px;
+}
+
+.mat-row{
+  
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  align-items: center;
+  padding: 0 24px;
+  box-sizing: border-box;
+} 
+.mat-header-row {
+  position: sticky;
+  display: flex;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  align-items: center;
+  padding: 0 24px;
+  box-sizing: border-box;
+  
+  
+}
+
+.mat-cell, .mat-header-cell {
+  flex: 1;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
+.mat-expansion-panel {
+  overflow: inherit !important;
+}
+
+.mat-expansion-panel-body {
+  overflow: hidden; 
+}
+
+.mat-elevation-z2.mat-header-row {
+  position: sticky;
+  top: px;
+  z-index: 1000;
+  background:#F6F8FB
+}
+
+.mat-expansion-panel-header.mat-row {
+  position: sticky;
+  top: 55px;
+  z-index: 1000;
+  background:#F6F8FB
+}
+
+
+

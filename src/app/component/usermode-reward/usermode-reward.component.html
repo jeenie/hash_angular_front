@@ -1,0 +1,172 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">마케팅 관리</a></li>
+    <li class="breadcrumb-item active" aria-current="page">보상 조회</li>
+  </ol>
+</nav>
+
+
+
+
+<h1>사용자 보상 조회 (사용자 모드)</h1>
+
+<div style="display: flex;"> 
+  <div class="col-lg-6"><p>날짜 조회</p>
+      <form class="date-block" [formGroup]="filterForm" (ngSubmit)="SubmitDate()">
+
+          <div class="date-block__list">
+          <mat-form-field>
+            <input matInput 
+              [matDatepicker]="fromDate" 
+              placeholder="From Date" 
+              formControlName="fromDate">
+            <mat-datepicker-toggle matSuffix [for]="fromDate"></mat-datepicker-toggle>
+            <mat-datepicker #fromDate></mat-datepicker>
+          </mat-form-field>
+          </div>
+          <div class="date-block__list">
+          <mat-form-field>
+            <input matInput 
+              [matDatepicker]="toDate" 
+              placeholder="To Date" 
+              formControlName="toDate">
+            <mat-datepicker-toggle matSuffix [for]="toDate"></mat-datepicker-toggle>
+            <mat-datepicker #toDate></mat-datepicker>
+          </mat-form-field>
+          </div>
+          <div><button mat-raised-button type="submit" color="primary" style="margin-left:20%">검색</button></div>
+          
+          </form>
+  </div>
+  <div>
+  </div>
+  
+
+</div>
+
+<div style="display: flex;">
+  <div class="col-lg-6"><h2>{{this.selectedUserId}}의데이터를 조회합니다.</h2></div>
+  
+  
+
+</div>
+
+<div class="sales-detail">
+  <div class="total-sales"><h3>BTC 잔고</h3></div>
+  <div class="total-sales">
+      <h3>
+          <span> {{this.selectedUserIdBalanceData.balance}} BTC</span> 
+      </h3>
+  </div>
+  
+
+</div>
+<div class="sales-detail">
+  <div class="total-sales"><h3>총 매출액</h3></div>
+  <div class="total-sales-coin">
+      <h3>
+          <span> {{this.totalCoin.toFixed(8)}} BTC</span> 
+      </h3>
+  </div>
+  <div class="total-sales">
+      <h3>
+          <span style="color: red">{{this.totalUsd}} USD</span>
+      </h3>
+  </div>
+
+</div>
+
+<div class="sales-detail">
+  <div class="total-sales-rewards"><h3>총 매출 보상액</h3></div>
+  <div class="total-sales-rewards">
+      <h3>
+          {{rewardTotalCoin.toFixed(8)}} BTC
+      </h3>
+  </div>
+  <div class="total-sales-rewards">
+      <h3>
+          <span style="color: red">{{rewardTotalUsd.toFixed(2)}} USD</span>
+      </h3>
+  </div>
+
+</div>
+
+
+
+<div class="example-action-buttons">
+<button mat-button (click)="accordion.openAll()">세대 전체 보기</button>
+<button mat-button (click)="accordion.closeAll()">세대 전체 닫기</button>
+</div>
+
+
+<mat-accordion displayMode="flat" multi class="mat-table">
+  <section class="mat-elevation-z2 mat-header-row" style="position: sticky; top: 0;z-index: 1000; background:#ffffff;">
+    <span class="mat-header-cell">no</span>
+    <span class="mat-header-cell">BTC</span>
+    <span class="mat-header-cell">USD</span>
+  </section>
+
+  <mat-expansion-panel *ngFor="let item of displayedRows$ | async">
+    <mat-expansion-panel-header class="mat-row">
+      <span class="mat-cell">{{item.no}}대 매출 보상액</span>
+      <span class="mat-cell">{{item.totalCoin.toFixed(8)}}</span>
+      <span class="mat-cell">{{item.totalUsd.toFixed(2)}}</span>
+    </mat-expansion-panel-header>
+    <div><table mat-table [dataSource]="item.childList" multiTemplateDataRows class="mat-elevation-z8">
+      <ng-container matColumnDef="USER_ID">
+          <th mat-header-cell *matHeaderCellDef>하위 사용자ID </th>
+          <td mat-cell *matCellDef="let ele"> {{ele.USER_ID}}  </td>
+      </ng-container>
+      <ng-container matColumnDef="PRODUCT_THS">
+          <th mat-header-cell *matHeaderCellDef> 상품명 </th>
+          <td mat-cell *matCellDef="let ele"> {{ele.PRODUCT_THS}}  </td>
+      </ng-container>
+      <ng-container matColumnDef="ST_COIN">
+          <th mat-header-cell *matHeaderCellDef> BTC </th>
+          <td mat-cell *matCellDef="let ele"> {{ele.ST_COIN}}  </td>
+      </ng-container>
+      <ng-container matColumnDef="CRT_USD">
+          <th mat-header-cell *matHeaderCellDef>USD </th>
+          <td mat-cell *matCellDef="let ele"> {{ele.CRT_USD}}  </td>
+      </ng-container>
+      <ng-container matColumnDef="REG_DATE">
+          <th mat-header-cell *matHeaderCellDef>구매날짜 </th>
+          <td mat-cell *matCellDef="let ele"> {{ele.REG_DATE | date: 'yyyy/MM/dd '}}  </td>
+      </ng-container>
+      <ng-container matColumnDef="final_child">
+          <th mat-header-cell *matHeaderCellDef>만기날짜 </th>
+          <td mat-cell *matCellDef="let ele"> {{ele.exp_date | date: 'yyyy/MM/dd'}}  </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="secondary" >
+          <td mat-cell  *matCellDef="let ele"> 각 세대 총 매출액 </td>
+      </ng-container>
+      <ng-container matColumnDef="secondary1" >
+          <td mat-cell  *matCellDef="let ele"> </td>
+      </ng-container>
+
+      <ng-container matColumnDef="btc" >
+          <td mat-cell  *matCellDef="let ele"> {{ele.total_coin.toFixed(8) }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="coin" >
+          <td mat-cell  *matCellDef="let ele"> {{ele.total_usd}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="secondary2" >
+          <td mat-cell  *matCellDef="let ele"> </td>
+      </ng-container>
+      <ng-container matColumnDef="secondary3" >
+          <td mat-cell  *matCellDef="let ele"> </td>
+      </ng-container>
+
+
+
+      <tr mat-row *matHeaderRowDef="displayedColumns2" ></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['secondary', 'secondary1', 'btc', 'coin', 'secondary2', 'secondary3'];  let element;" [ngStyle]="{'display':element.final_child? '':'none'}" style="background-color: #F6F8FB;"></tr>
+  </table>
+</div>
+  </mat-expansion-panel>
+
+</mat-accordion>      

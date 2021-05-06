@@ -1,0 +1,182 @@
+/* 세로 컨텐츠들의 반응형 처리 */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  
+}
+
+/* 메뉴 반응형 처리 */
+mat-sidenav-container {
+  display: flex;
+  flex: 1;
+  background-color:#ffffff !important;
+}
+
+
+
+/* 메뉴의 anchor 태그 스타일 지정 최초는 흰색, 클릭시 회색으로 변경 */
+/* a {
+  text-decoration: none;
+  color: white;
+} */
+
+a:hover,
+a:active {
+  color: lightgray;
+}
+
+/* Toolbar*/
+.navigation-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+
+mat-toolbar{
+  background: #ffffff;
+  margin:10px;
+}
+
+.toolbar-line{
+  border-bottom:1px double #E0E0E0;
+}
+
+
+.toolbar-line div ul li a span{
+  color:#526484;
+  font-weight:bold;
+}
+
+.toolbar-line div i +  .toolbar-line div  {
+  color:#526484;
+  font-weight:bold;
+}
+
+
+
+mat-toolbar div ul li a span{
+  font-size: 15px;
+} 
+
+mat-toolbar div button{
+  background-color: #ffffff;
+}
+
+.sidenav-container {
+  z-index: -1 !important;
+}
+
+.language-button i span {
+  font-weight: bold;
+}
+
+/* CONTENT */
+mat-sidenav-content{
+margin:50px;
+}
+
+mat-sidenav-content main{
+margin-left:50px; 
+margin-right:50px;
+}
+
+@media(max-width: 768px) {
+  mat-sidenav-content{
+    margin:0px;
+}
+
+mat-sidenav-content main {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+}
+.label{
+font-size:15px;
+}
+mat-expansion-panel mat-nav-list a{
+font-size:13px;
+}
+
+
+
+/* SIDEBAR */
+mat-sidenav {
+  min-width: 200px;
+  background-color: #f5f6fa;
+  width:300px;
+}
+
+mat-sidenav mat-expansion-panel {
+  background-color: #f5f6fa;
+}
+
+mat-sidenav mat-nav-list{
+         margin: 30px;
+}
+
+mat-sidenav mat-nav-list a span{
+  font-weight:bold;
+  color: #8094ae;
+
+}
+
+mat-sidenav mat-expansion-panel mat-expansion-panel-header span{
+  font-weight:bold;
+  color: #8094ae;
+}
+
+mat-sidenav mat-expansion-panel mat-nav-list a{
+  font-weight:bold;
+  color: #8094ae;
+}
+
+
+
+
+
+mat-sidenav mat-nav-list a svg{
+  color: #8094ae;
+  margin-right:10px;
+}
+
+mat-sidenav mat-expansion-panel mat-expansion-panel-header svg{
+  color: #8094ae;
+  margin-right:10px;
+}
+
+
+
+
+
+/* FOOTER */
+footer {
+  width:100%;
+  height:100px;
+  bottom:0;
+  font-size: 14px;
+  line-height: 20px;
+  background: #ffffff;
+  color: #526484;
+  margin-top: 12%;
+}
+ 
+/* footer .container-fluid .nk-footer-wrap .nk-footer-copyright{
+  text-align: left;
+} */
+footer .nk-footer-links .nav li {
+  text-align: center;
+}
+
+
+footer .container-fluid .nk-footer-links .nav .nav-item a{
+    color: #526484;
+    text-align: center;
+    
+  
+}
+

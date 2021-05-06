@@ -1,0 +1,67 @@
+<div class="container-fluid">
+
+    <!-- title --> 
+    <ol class="breadcrumb bg-white text-dark mb-0 pl-0">
+      <li class="breadcrumb-item active" aria-current="page">지갑관리&nbsp;  ><span class="title_f">&nbsp; BTC지갑</span></li>
+    </ol>
+    <h3>BTC지갑</h3>
+    <div class="row mb-5 mt-4">
+
+    <!-- bootstrap card -->
+    <div class="card w-100">
+        <div class="card-header">
+             <div class="row">
+                 <!-- fontawesome : https://medium.com/better-programming/angular-font-awesome-in-5-easy-steps-with-angular-fontawesome-2b80129bcd7-->
+                 <!-- fontawesome : coins -->
+                 <div class="col-8">
+                    <span id="mybtc" ><fa-icon [icon]="faCoins"></fa-icon>나의 BTC 잔고</span>
+                </div>
+                <div class="col-4">
+                    <span style="float:right">
+                        <span id="mybtc_num">0.00034333</span>
+                        <span id="mybtc_type">BTC</span>
+                     </span>
+                 </div>
+                </div>
+             <div class="row">
+                <div class="col-10">
+                    <span id="enable_btc">현재 사용 가능한 BTC 보유 금액</span>
+                </div>
+                <div class="col-0">
+                    <span id="enable_tbc_num">
+                        <span style="float:right" >452</span>
+                        <span style="float:right" >USD</span>  
+                    </span>
+                </div>    
+            </div>    
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <!-- bootstrap grid 배치 -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 col-md-3 mx-5">
+                            <img src="data:image/png;base64,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" alt="QR Code">
+                        </div>
+                        <div class="row">
+                            <div>지갑 주소</div>
+                            <div class="input-group mb-3 ">
+                                <div class="input-group-prepend">
+                                <!-- fontawesome :link-->
+                                <span class="input-group-text" id="basic-addon1"><fa-icon [icon]="faLink"></fa-icon></span>
+                                </div>
+                                <input type="text" readonly  class="form-control" placeholder="bc1qh6p4manyjfz498lxv54jst92j6z6mhreyedgtt" aria-label="Username" aria-describedby="basic-addon1">
+                                <button class="btn btn-outline-secondary" type="button">링크복사 </button>
+                            </div>
+                            <button id="withdraw_btn" type="button" class="btn btn-outline-primary" onclick="location.href='com/getWithdraw'">출금하기 </button>
+                        </div>
+                    </div>
+                </div>
+            </blockquote>
+        </div>
+    </div>
+
+
+
+</div>  
+

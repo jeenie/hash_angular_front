@@ -1,0 +1,59 @@
+<div class="container-fluid">
+
+   <form class="form-inline">
+      <span class="h1" style="color: gray;">바이너리 트리</span>
+
+      <div class="form-group mx-sm-3 mb-2">
+        <input type="text" class="form-control" id="ROOT_USER" placeholder="ROOT_USER" [(ngModel)]="loginUserInput" name="ROOT_USER">
+      </div>
+      <button type="button" class="btn btn-secondary mb-2" (click)="changeLoginUser()">변경</button>
+    </form>
+
+   <div class="mt-2 row border-bottom">
+      <div class="col">
+         <app-tree-detail [selectNodeObj]="selectNodeObj">
+         </app-tree-detail>
+      </div>
+   </div>
+
+   <!-- <div class="row border-bottom" *ngIf="selectNodeObj.USER_ID.length!=0">
+      <div class="col p-2 right text-right">
+         <button type="button" class="btn btn-secondary btn-lg" (click)="deleteSelectedNode()">삭제</button>
+      </div>
+   </div> -->
+
+   <div class="row p-4">
+      <div class="col pl-5">
+         <google-chart [columns]="chartColumns" [title]="title" [type]="type" [data]="data" [options]="options"
+            (select)="selectNode($event)">
+         </google-chart>
+      </div>
+   </div>
+
+   <div class="row border-top pt-4">
+      <div class="col">
+         <div class="row">
+            <div class="col">
+               <h3 style="color: gray;">하부회원 목록</h3><br />
+            </div>
+         </div>
+         <div class="row">
+            <div class="col">
+               <ng-container *ngIf="tableUserList.length != 0; then ifCase else elseCase"></ng-container>
+
+               <ng-template #ifCase>
+                  <app-tree-table [tableUserList]="tableUserList"></app-tree-table>
+               </ng-template>
+               <ng-template #elseCase>
+                  <div class="alert alert-secondary" role="alert">
+                     데이터 없음.
+                  </div>
+               </ng-template>
+
+
+            </div>
+         </div>
+      </div>
+   </div>
+
+</div>

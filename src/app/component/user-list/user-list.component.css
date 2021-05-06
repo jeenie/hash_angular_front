@@ -1,0 +1,140 @@
+a {
+    color: #8094ae;
+    text-decoration: none;
+    padding: 0px 10px;
+    margin: 0px;
+}
+
+nav a {
+    background-color: #ffffff; 
+}
+
+.breadcrumb {
+    background-color: #ffffff;
+}
+
+.breadcrumb-item {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.breadcrumb-item active {
+    color: #b7c2d0;
+}
+
+.breadcrumb-item +
+.breadcrumb-item::before {
+    content: ">"
+}
+
+.container {
+    margin-left: 1%;
+}
+
+.example-full-width-pinned-row {
+    background-color: #2aabd2;
+    border: 2px solid darkblue;
+    /* we want the border to be kept within the row height */
+    box-sizing: border-box;
+    /* get the row to fill the available height */
+    height: 100%;
+    /* grid sets white-space to one line, need to reset for wrapping the text */
+    white-space: normal;
+  }
+  
+  .example-full-width-row {
+    background-color: #bbffbb;
+    border: 2px solid #22ff22;
+    /* we want the border to be kept within the row height */
+    box-sizing: border-box;
+    /* get the row to fill the available height */
+    height: 100%;
+    /* grid sets white-space to one line, need to reset for wrapping the text */
+    white-space: normal;
+  }
+  
+  /* to help highlight the example, shade blue to top and bottom pinned */
+  .ag-floating-top .ag-row {
+    background-color: lightblue !important;
+  }
+  
+  .ag-floating-bottom .ag-row {
+    background-color: lightblue !important;
+  }
+
+  
+  .mat-form-field {
+    font-size: 14px;
+    /*
+    input 크기조절
+    width: 70%;
+    */
+  }
+  
+  td, th {
+    width: 3%;
+  }
+
+  th.mat-sort-header-sorted {
+    color: black;
+  }
+
+  .date-block {
+    display: flex;
+}
+
+.mat-column-position {
+  max-width: 100px;
+}
+
+.mat-column-name {
+  max-width: 100px;
+}
+
+table {
+  width: 100%;
+}
+
+tr.example-detail-row {
+  height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: whitesmoke;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+  background: #efefef;
+}
+
+.example-element-row td {
+  border-bottom-width: 0;
+}
+
+.example-element-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.example-element-diagram {
+  min-width: 80px;
+  border: 2px solid black;
+  padding: 8px;
+  font-weight: lighter;
+  margin: 8px 0;
+  height: 104px;
+}
+
+.example-element-symbol {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: normal;
+}
+
+.example-element-description {
+  padding: 16px;
+}
+
+.example-element-description-attribution {
+  opacity: 0.5;
+}

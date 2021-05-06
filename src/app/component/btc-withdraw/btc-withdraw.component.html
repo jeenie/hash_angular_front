@@ -1,0 +1,87 @@
+<div class="container-fluid">
+
+    <!-- title --> 
+    <ol class="breadcrumb bg-white text-dark mb-0 pl-0">
+      <li class="breadcrumb-item active" aria-current="page">지갑관리&nbsp;  >&nbsp; BTC지갑<span class="title_f">&nbsp;>&nbsp; BTC지갑</span></li>
+    </ol>
+    <h3>출금하기</h3>
+    <div class="row mb-5 mt-4">
+
+    <!-- bootstrap card -->
+    <div class="card w-100">
+        <div class="card-header">
+             <div class="row">
+                 <!-- fontawesome : https://medium.com/better-programming/angular-font-awesome-in-5-easy-steps-with-angular-fontawesome-2b80129bcd7-->
+                 <!-- fontawesome : coins -->
+                 <div class="col-8">
+                    <span id="mybtc" ><fa-icon [icon]="faCoins"></fa-icon>나의 BTC 잔고</span>
+                </div>
+                <div class="col-4">
+                    <span style="float:right">
+                        <span id="mybtc_num">0.00034333</span>
+                        <span id="mybtc_type">BTC</span>
+                     </span>
+                 </div>
+                </div>
+             <div class="row">
+                <div class="col-10">
+                    <span id="enable_btc">현재 사용 가능한 BTC 보유 금액</span>
+                </div>
+                <div class="col-0">
+                    <span id="enable_tbc_num">
+                        <span style="float:right" >452</span>
+                        <span style="float:right" >USD</span>  
+                    </span>
+                </div>    
+            </div>    
+        </div>
+        <!-- bootstrap :card-->
+        <div class="card-body" >
+            <blockquote class="blockquote mb-0">
+                <div class="row mb-4 border-bottom border-top mx-1 py-4 px-1">
+                    <div class="col-md-4 col-sm-12" id="info_line1">
+                        <label class="form-label">1회 최소 출금 가능액</label>
+                        <h5 class="text-right" id="w_min">0.003<span class="ml-1" id="my_coin_id">BTC</span></h5>
+                    </div>
+                    <div class="col-md-4 col-sm-12 border-x">
+                        <label class="form-label">1회 최대 출금 가능액</label>
+                        <h5 class="text-right" id="once_coin">1<span class="ml-1" id="my_coin_id">BTC</span></h5>
+                    </div>
+                    <div class="col-md-4 col-sm-12"  id="info_line2">
+                        <label class="form-label">1일 출금 한도</label>
+                        <h5 class="text-right" id="withdrawed_coin">0<span>/</span> <span id="daily_coin">5</span> <span class="ml-1" id="my_coin_id">BTC</span></h5>
+                    </div>
+                </div>
+                <div>
+                    <div class="for_margin"> 출금 주소</div>
+                     <!-- bootstrap :input-group-->
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                </div>
+                <div>
+                    <div class="for_margin">출금하실 금액</div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                         <button class="btn btn-outline-secondary" type="button">최대</button>
+                        </div>
+                     </div>
+                </div>
+                <div class="for_margin">
+                    <div>출금 후 잔액</div>
+                    <div>0</div>
+                    <div><span>출금 수수료</span><span>0.0005</span><span>BTC</span></div>
+                </div>
+                <div class="for_margin"  >
+                    <button style="width:200px"type="button" class="btn btn-outline-primary" onclick="location.href='com/getWithdraw'">출금하기 </button>
+                </div>
+                
+            </blockquote>
+        </div>
+    </div>
+
+
+
+</div>  
+

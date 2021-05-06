@@ -1,0 +1,130 @@
+a {
+    color: #8094ae;
+    text-decoration: none;
+    padding: 0px 10px;
+    margin: 0px;
+}
+
+nav a {
+    background-color: #ffffff; 
+}
+
+.breadcrumb {
+    background-color: #ffffff;
+}
+
+.breadcrumb-item {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.breadcrumb-item active {
+    color: #b7c2d0;
+}
+
+.breadcrumb-item +
+.breadcrumb-item::before {
+    content: ">"
+}
+
+.container {
+    margin-left: 1%;
+}
+
+.example-full-width-pinned-row {
+    background-color: #2aabd2;
+    border: 2px solid darkblue;
+    /* we want the border to be kept within the row height */
+    box-sizing: border-box;
+    /* get the row to fill the available height */
+    height: 100%;
+    /* grid sets white-space to one line, need to reset for wrapping the text */
+    white-space: normal;
+  }
+  
+  .example-full-width-row {
+    background-color: #bbffbb;
+    border: 2px solid #22ff22;
+    /* we want the border to be kept within the row height */
+    box-sizing: border-box;
+    /* get the row to fill the available height */
+    height: 100%;
+    /* grid sets white-space to one line, need to reset for wrapping the text */
+    white-space: normal;
+  }
+  
+  /* to help highlight the example, shade blue to top and bottom pinned */
+  .ag-floating-top .ag-row {
+    background-color: lightblue !important;
+  }
+  
+  .ag-floating-bottom .ag-row {
+    background-color: lightblue !important;
+  }
+
+  
+  .mat-form-field {
+    font-size: 14px;
+    /*
+    input 크기조절
+    width: 70%;
+    */
+  }
+  
+  td, th {
+    width: 3%;
+  }
+
+  th.mat-sort-header-sorted {
+    color: black;
+  }
+
+  .date-block {
+    display: flex;
+}
+
+.mat-column-position {
+  max-width: 100px;
+}
+
+.mat-column-name {
+  max-width: 100px;
+}
+
+.mat-elevation-z8 {
+  box-shadow: none;
+}
+
+.btcAndHss {
+  margin-top: 5%;
+  display: flex;
+}
+
+.btc {
+  flex: 1;
+  margin-right: 5%;
+}
+.hss {
+  flex: 1;
+}
+
+.sales-detail {
+  display: flex;
+  margin-left: 2%;
+}
+
+.total-sales-rewards {
+  margin-right: 26%;
+}
+
+.total-sales {
+  margin-right: 28%;
+}
+
+.total-sales-coin {
+  margin-right: 26%;
+}
+
+.total-sales-title {
+  margin-left: 1%;
+}

@@ -1,0 +1,56 @@
+<div class="container-fluid">
+
+    <!-- title --> 
+    <ol class="breadcrumb bg-white text-dark mb-0 pl-0">
+      <li class="breadcrumb-item active" aria-current="page">USD&nbsp;  ><span class="title_f">&nbsp; 출금하기</span></li>
+    </ol>
+    <h3>출금하기</h3>
+    <div class="row mb-5 mt-4">
+
+    <!-- bootstrap card -->
+    <div class="card w-100">
+        <div class="card-header">
+             <div class="row">
+                 <!-- fontawesome : https://medium.com/better-programming/angular-font-awesome-in-5-easy-steps-with-angular-fontawesome-2b80129bcd7-->
+                 <!-- fontawesome : coins -->
+                 <div class="col-8">
+                    <span id="mybtc" ><fa-icon [icon]="faCoins"></fa-icon>나의 BTC 잔고</span>
+                </div>
+                <div class="col-4">
+                    <span style="float:right">
+                        <span id="mybtc_num">0.00034333</span>
+                        <span id="mybtc_type">BTC</span>
+                     </span>
+                 </div>
+                </div>
+        </div>
+        <div class="card-body" >
+            <blockquote class="blockquote mb-0">
+                <div>
+                    <div>출금하실 주소 (soon0509)</div>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                </div>
+                <div>
+                    <span>출금하실 금액 (USD)</span><span>출금하실 금액 (HSS)</span>
+                    <div class="input-group">
+                        <span>
+                            최소 200 
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="for_margin"  >
+                    <button style="width:200px"type="button" class="btn btn-outline-primary" onclick="location.href='com/getWithdraw'">출금하기 </button>
+                </div>
+                
+                
+            </blockquote>
+        </div>
+    </div>
+
+
+
+</div>  
+

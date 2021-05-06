@@ -1,0 +1,36 @@
+/*** Card Header ***/
+.card-header{
+    padding:25px;
+}
+#mybtc{
+    font-size:25px;
+}
+#mybtc_num{
+    font-size:30px;
+    color:#6576ff;
+    margin-right:0px;
+    font-weight:bold;
+}
+#mybtc_type{
+    font-size:20px;
+    color:#6576ff;
+}
+
+#enable_btc{
+    font-size:15px;
+    color:gray;
+
+}#enable_btc_num{
+    font-size:15px;
+}
+
+
+
+/*** Card Body ***/
+
+/* Link */
+.form-control{
+    background-color: white;
+}
+
+

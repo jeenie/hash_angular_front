@@ -1,0 +1,43 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400);
+
+a {
+    color: #8094ae;
+    text-decoration: none;
+    padding: 0px 10px;
+    margin: 0px;
+}
+
+nav a {
+    background-color: #ffffff; 
+}
+
+.breadcrumb {
+    background-color: #ffffff;
+}
+
+.breadcrumb-item {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.breadcrumb-item active {
+    color: #b7c2d0;
+}
+
+.breadcrumb-item +
+.breadcrumb-item::before {
+    content: ">"
+}
+
+.container {
+    margin-left: 1%;
+}
+
+.page-title {
+    margin: 0.5em 0 1.3em 16px;
+    font-size: 1.75rem;
+}
+
+.dataTables_wrapper {
+    padding-left: 16px;
+}

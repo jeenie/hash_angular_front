@@ -1,0 +1,13 @@
+::ng-deep.treeNodeClass {
+    opacity: 1;
+    cursor: pointer;
+    zoom: 1.2;
+}
+
+::ng-deep.selectedTreeNodeClass {
+    font-weight: bold;
+    cursor: pointer;
+    zoom: 1.4;
+    background-color: rgb(203, 227, 241);
+    border-radius: 5px;
+}

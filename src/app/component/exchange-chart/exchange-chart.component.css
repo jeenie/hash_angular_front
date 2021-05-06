@@ -1,0 +1,51 @@
+/* .chartjs-container{
+    width: 1000px;
+    height: 1000px;   
+} */
+
+/*** Card Header ***/
+.card-header{
+    padding:25px;
+}
+
+#mybtc{
+    font-size:25px;
+}
+
+#mybtc_num{
+    font-size:30px;
+    color:#6576ff;
+    margin-right:0px;
+    font-weight:bold;
+}
+
+#mybtc_type{
+    font-size:20px;
+    color:#6576ff;
+}
+
+#enable_btc{
+    font-size:15px;
+    color:gray;
+
+}#enable_btc_num{
+    font-size:15px;
+}
+
+/*** Card Body ***/
+/** Info **/
+#info_line1{
+    border-right: 1px solid #e5e9f2;
+}
+
+#info_line2{
+    border-left: 1px solid #e5e9f2;
+}
+
+.for_margin{
+    margin:15px;
+}
+
+.piechart{
+    width:600px;
+}

@@ -1,0 +1,45 @@
+@media(max-width: 768px) {
+    table {
+        box-shadow: none;
+        width: 100%;
+    }
+
+    .example-container {
+        height: 400px;
+        overflow: auto;
+      }
+    
+    .breadcrumb {
+        display: none;
+    }
+
+    ::ng-deep .mat-tab-header-pagination {
+        display: none !important;
+    }
+    
+    .mat-tab-label-container {
+        display: flex;
+        flex-grow: 1;
+        overflow: hidden;
+        z-index: 1;
+        overflow-x: scroll !important;
+    }
+
+    .mat-form-field {
+        width: 375px;
+    }
+
+    .coin_detail {
+        display: flex;
+    }
+
+    .coin_price_detail {
+        font-size: 22px;
+        font-weight: bold;
+    }
+  }
+
+  .mat-tab-group {
+    margin-bottom: 1px;
+  }
+

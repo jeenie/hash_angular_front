@@ -1,0 +1,59 @@
+<div class="row">
+   <div class="col border-right">
+      <h2>{{selectNodeObj.USER_ID || "아이디"}}</h2>
+      <ul class="list-inline">
+         <li class="list-inline-item"><span class="text-muted">가입일</span></li>
+         <li class="list-inline-item">{{selectNodeObj.REG_DATE}}</li>
+      </ul>
+
+      <div class="row">
+         <div class="col">
+            <ul class="list-inline">
+               <li class="list-inline-item"><span class="text-muted">직급</span></li>
+               <li class="list-inline-item"><span class="h4">ENTRY</span></li>
+            </ul>
+         </div>
+         <div class="col">
+            <ul class="list-inline">
+               <li class="list-inline-item"><span class="text-muted">구매상품</span></li>
+               <li class="list-inline-item">
+                  <ul class="list-inline">
+                     <li class="list-inline-item"><span class="h4">50</span></li>
+                     <li class="list-inline-item">THS</li>
+                  </ul>
+               </li>
+            </ul>
+         </div>
+      </div>
+
+   </div>
+   <div class="col">
+      <div class="row h-100 align-items-center">
+
+         <div class="col border-right">
+            <div class="text-center mb-3 text-muted">LEFT 총매출</div>
+            <h3 class="text-center">0</h3>
+         </div>
+
+         <div class="col">
+            <div class="text-center mb-3 text-muted">RIGHT 총매출</div>
+            <h3 class="text-center">0</h3>
+         </div>
+      </div>
+   </div>
+
+</div>
+<!-- <div class="row border-bottom pb-3">
+   <div class="row">
+      <div class="col">
+         <select class="form-control" id="selectSecId" [(ngModel)]="secDir">
+            <option value="L" selected>LEFT</option>
+            <option value="R">RIGHT</option>
+         </select>
+      </div>
+      <div class="col">
+         <button type="button" class="btn btn-outline-secondary" (click)="clickAddMember()">멤버 추가</button>
+      </div>
+
+   </div>
+</div> -->

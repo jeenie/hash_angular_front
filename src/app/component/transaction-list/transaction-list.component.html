@@ -1,0 +1,154 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">지갑관리</a></li>
+      <li class="breadcrumb-item active" aria-current="page">거래내역</li>
+    </ol>
+  </nav>
+  <div style="display: flex;">
+
+    <div>
+
+      <h1>날짜 조회<mat-icon aria-hidden="false" >book_online</mat-icon></h1>
+
+  <!-- Datepicker form -->
+  <form class="date-block" [formGroup]="filterForm">
+   
+    <div class="date-block__list">
+      <mat-form-field>
+        <input matInput 
+          [matDatepicker]="fromDate" 
+          placeholder="From Date" 
+          formControlName="fromDate">
+        <mat-datepicker-toggle matSuffix [for]="fromDate"></mat-datepicker-toggle>
+        <mat-datepicker #fromDate></mat-datepicker>
+      </mat-form-field>
+    </div>
+      <div class="date-block__list">
+      <mat-form-field>
+        <input matInput 
+          [matDatepicker]="toDate" 
+          placeholder="To Date" 
+          formControlName="toDate">
+        <mat-datepicker-toggle matSuffix [for]="toDate"></mat-datepicker-toggle>
+        <mat-datepicker #toDate></mat-datepicker>
+      </mat-form-field>
+    </div>
+     
+  </form>
+    </div>
+
+
+  <div style="margin-left: 2%">
+    <h1>전체 조회<mat-icon aria-hidden="false" class="mat-36">search</mat-icon></h1>
+
+  <!--Search input (filter) -->
+    <mat-form-field>
+      <mat-label>Filter</mat-label>
+      <input matInput [ngModel]="globalFilter" [ngModelOptions]="{standalone: true}" (ngModelChange)="applyFilter($event)" placeholder="검색어를 입력하세요." >
+      
+    </mat-form-field>
+  </div>
+  </div>
+    
+    <!--
+    <button mat-button color="primary" class="primary" (click)="applyFilter(input.value)">Submit</button>
+      -->
+      
+
+      <div>
+        <h1>아이디 조회<mat-icon aria-hidden="false" class="mat-36">search</mat-icon></h1>
+        <mat-form-field *ngFor="let filter of filterSelectObj" style="margin-left: 15px;">
+          <mat-label>{{filter.name}} 조회</mat-label>
+          <select matNativeControl name="{{filter.columnProp}}" [ngModel]="filter"
+            (change)="filterChange(filter,$event)">
+            <option value="">{{filter.name}} </option>
+            <option [value]="item" *ngFor="let item of filter.options">{{item}}</option>
+          </select>
+        </mat-form-field>
+        &nbsp;
+        <!--
+<button mat-flat-button color="warn" (click)="resetFilters()">Reset</button>
+        -->
+        
+        
+      </div>
+    
+    
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 table-wrapper">
+      
+        <!-- RegDate Column -->
+        <ng-container matColumnDef="regDate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> 거래날짜 </th>
+            <td mat-cell *matCellDef="let element"> {{element.regDate | date: 'yyyy/MM/dd HH:mm:ss'}} </td>
+        </ng-container>
+
+        <!-- UserId Column -->
+        <ng-container matColumnDef="userId">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> 아이디 
+              <!--
+              <div>
+                <mat-form-field>
+                  <input matInput class="form-field" [formControl]="userIdFilter" placeholder="UserId Filter">
+                </mat-form-field>
+              </div> -->
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.userId }} </td>
+          </ng-container>
+    
+        <!-- WalletId Column -->
+        <ng-container matColumnDef="walletId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> 지갑 아이디 </th>
+        <td mat-cell *matCellDef="let element"> {{element.walletId}} </td>
+        </ng-container>
+    
+        <!-- Gubun Column -->
+        <ng-container matColumnDef="gubun">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> 구분 </th>
+        <td mat-cell *matCellDef="let element" [ngStyle]="{'color':element.gubun == 'I' ? 'red':'blue'}"> {{element.gubun == 'I' ? '입금' : '출금'}} </td>
+        </ng-container>
+
+        <!-- Reason Column -->
+        <ng-container matColumnDef="reason">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> 거래사유 </th>
+            <td mat-cell *matCellDef="let element"> {{element.reason}} </td>
+        </ng-container>
+
+        <!-- ReasonDetail Column -->
+        <ng-container matColumnDef="reasonDetail">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> 거래상세 </th>
+            <td mat-cell *matCellDef="let element"> {{element.reasonDetail}} </td>
+        </ng-container>
+    
+        <!-- CoinId Column -->
+        <ng-container matColumnDef="coinId">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> 코인 </th>
+            <td mat-cell *matCellDef="let element"> {{element.coinId}} </td>
+        </ng-container>
+
+        <!-- Amount Column -->
+        <ng-container matColumnDef="amount">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> 거래량 </th>
+            <td mat-cell *matCellDef="let element" [ngStyle]="{'color':element.gubun == 'I' ? 'red':'blue'}"> {{element.amount}} </td>
+        </ng-container>
+
+        <!-- Balance Column -->
+        <ng-container matColumnDef="balance">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> 잔액 </th>
+            <td mat-cell *matCellDef="let element"> {{element.balance}} </td>
+        </ng-container>
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+          <!-- Row shown when there is no matching data. -->
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data matching the filter </td>
+          </tr>
+        </table>
+      
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+      </div>
+
+      
+ 
